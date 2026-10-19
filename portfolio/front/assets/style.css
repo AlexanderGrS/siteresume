@@ -1,0 +1,470 @@
+:root {
+  --bg: #0f1115;
+  --surface: #161920; /* Цвет для карточек и панелей */
+  --fg: #e6e8eb;
+  --muted: #8a92a6;
+  --accent: #7aa2ff;
+  --border: #262b36;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* --- СЕТКА МАКЕТА --- */
+.layout {
+  max-width: 1100px; /* Теперь сайт шире */
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  display: grid;
+  grid-template-columns: 300px 1fr; /* Левая колонка 300px, правая - остальное */
+  gap: 4rem; /* Расстояние между колонками */
+  align-items: start;
+}
+
+/* --- ЛЕВАЯ КОЛОНКА --- */
+.sidebar {
+  position: sticky; /* Колонка "прилипает" при скролле */
+  top: 4rem;
+  text-align: center;
+}
+
+.avatar {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%; /* Делает картинку круглой */
+  object-fit: cover; /* Чтобы фото не плющилось */
+  border: 3px solid var(--border);
+  margin-bottom: 1.5rem;
+  background-color: var(--surface);
+}
+
+.sidebar h1 {
+  font-size: 1.5rem;
+  margin: 0 0 0.25rem;
+  letter-spacing: -0.02em;
+}
+
+.role {
+  color: var(--accent);
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 0.9rem;
+  margin: 0 0 0.5rem;
+}
+
+.location {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin: 0 0 2rem;
+}
+
+/* Кнопка LinkedIn */
+.linkedin-btn {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  padding: 0.4rem 1rem;
+  background: rgba(122, 162, 255, 0.1);
+  color: var(--accent);
+  border: 1px solid rgba(122, 162, 255, 0.3);
+  border-radius: 20px;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.linkedin-btn:hover {
+  background: var(--accent);
+  color: var(--bg);
+  transform: translateY(-2px);
+}
+
+/* Соцсети */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.social-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 50%; /* Круглые кнопки */
+  color: var(--muted);
+  transition: all 0.2s ease;
+}
+
+.social-icons a:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  transform: translateY(-2px); /* Легкий подскок при наведении */
+}
+
+.social-icons svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Навигация по сайту */
+.main-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  text-align: left;
+  border-top: 1px solid var(--border);
+  padding-top: 1.5rem;
+}
+
+.main-nav a {
+  color: var(--muted);
+  text-decoration: none;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.main-nav a:hover, .main-nav a.active {
+  background: var(--surface);
+  color: var(--fg);
+}
+
+/* --- ПРАВАЯ КОЛОНКА (КОНТЕНТ) --- */
+.content h2 {
+  font-size: 1.5rem;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+}
+
+.about p {
+  font-size: 1.1rem;
+  color: #c8ccd4;
+  margin-bottom: 3rem;
+}
+
+/* Секция навыков */
+.skills {
+  margin-bottom: 3rem;
+}
+
+.skill-group {
+  margin-bottom: 1.5rem;
+}
+
+.skill-group h3 {
+  font-size: 0.9rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.75rem;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--fg);
+  padding: 0.3rem 0.8rem;
+  border-radius: 6px;
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 0.85rem;
+}
+
+/* Секция опыта */
+.job {
+  margin-bottom: 2rem;
+}
+
+.job h3 {
+  margin: 0 0 0.25rem;
+  font-size: 1.2rem;
+}
+
+.company {
+  color: var(--accent);
+  font-weight: 500;
+  margin: 0 0 1rem;
+  font-size: 0.95rem;
+}
+
+.dates {
+  color: var(--muted);
+  font-weight: normal;
+}
+
+.job ul {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: #c8ccd4;
+}
+
+.job li {
+  margin-bottom: 0.5rem;
+}
+
+/* --- АДАПТИВНОСТЬ (МОБИЛЬНЫЕ) --- */
+@media (max-width: 800px) {
+  .layout {
+    grid-template-columns: 1fr; /* Складываем в одну колонку */
+    gap: 2rem;
+    padding: 2rem 1rem;
+  }
+
+  .sidebar {
+    position: static; /* Убираем "прилипание" на телефонах */
+    text-align: center;
+  }
+
+  .links {
+    flex-direction: row; /* Ссылки в ряд на мобилке */
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .links a {
+    width: auto;
+  }
+}
+
+/* --- СТИЛИ ДЛЯ БИОГРАФИИ --- */
+
+.bio-intro {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  margin-bottom: 3rem;
+}
+
+.bio-photo {
+  width: 280px;
+  border-radius: 12px;
+  object-fit: cover;
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.bio-text-short p {
+  margin-top: 0;
+}
+
+/* Таймлайн */
+.timeline {
+  border-left: 2px solid var(--border);
+  padding-left: 1.5rem;
+  margin-left: 1rem;
+  margin-bottom: 3rem;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -1.95rem;
+  top: 0.25rem;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--bg);
+}
+
+.timeline-date {
+  font-family: ui-monospace, monospace;
+  color: var(--accent);
+  font-weight: bold;
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+}
+
+.timeline-content h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+}
+
+.timeline-content p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* Карточки активизма */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.5rem;
+  border-radius: 12px;
+}
+
+.card h4 {
+  margin: 0 0 0.5rem;
+  color: var(--accent);
+  font-size: 1rem;
+}
+
+.card p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* Аккордеон (Спойлер) */
+.press-details {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-top: 2rem;
+  cursor: pointer;
+}
+
+.press-details summary {
+  font-weight: 600;
+  color: var(--fg);
+  outline: none;
+}
+
+.press-details summary:hover {
+  color: var(--accent);
+}
+
+.press-content {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.95rem;
+}
+
+.press-content a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.press-content a:hover {
+  text-decoration: underline;
+}
+
+/* --- МОБИЛЬНАЯ АДАПТАЦИЯ --- */
+@media (max-width: 800px) {
+  .bio-intro {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .bio-photo {
+    width: 100%;
+    max-width: 300px;
+  }
+  .timeline {
+    margin-left: 0;
+  }
+}
+
+/* Выделение главного навыка */ /* Конец второй версии стилей биографии */
+.highlight-tag {
+  background: rgba(122, 162, 255, 0.15); /* Прозрачный синий акцент */
+  border-color: var(--accent);
+  color: var(--accent);
+  font-weight: bold;
+}
+
+/* Стили для списка языков */
+.languages ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+.languages li {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: var(--fg);
+}
+
+/* Чуть уменьшим отступы внутри карточек опыта для компактности */
+.job ul {
+  padding-left: 1.2rem;
+}
+.job li {
+  margin-bottom: 0.4rem;
+  font-size: 0.95rem;
+  color: #c8ccd4;
+}
+
+/* Конец второй версии стилей биографии */
+
+/* Стили для языковых карточек */
+.lang-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.lang-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 8px;
+}
+
+.lang-card h4 {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  color: var(--fg);
+}
+
+.lang-card p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* Карточка-заглушка */
+.card-placeholder {
+  border-style: dashed;
+  background: transparent;
+  opacity: 0.7;
+}
+
+.card-placeholder h4 {
+  color: var(--muted);
+}
+
+/* Конец 3 части со стилями для био*/
