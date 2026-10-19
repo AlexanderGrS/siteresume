@@ -66,6 +66,34 @@ html, body {
   margin: 0 0 2rem;
 }
 
+/* Переключатель языков */
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.85rem;
+  font-family: ui-monospace, monospace;
+}
+
+.lang-switch a {
+  color: var(--muted);
+  text-decoration: none;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.lang-switch a:hover {
+  color: var(--accent);
+}
+
+.lang-switch a.active {
+  color: var(--bg);
+  background: var(--accent);
+  font-weight: bold;
+}
+
 /* Кнопка LinkedIn */
 .linkedin-btn {
   display: inline-block;
