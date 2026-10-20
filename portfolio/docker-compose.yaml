@@ -11,4 +11,4 @@ services:
       # Добавляем папки для сертификатов:
       - ./certbot/conf:/etc/letsencrypt:ro
       - ./certbot/www:/var/www/certbot:ro
-    restart: unless-stoppedS
+    restart: unless-stopped
